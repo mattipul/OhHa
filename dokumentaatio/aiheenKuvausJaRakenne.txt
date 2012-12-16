@@ -1,0 +1,9 @@
+Aihe: Tetris
+
+Toteutetaan Tetris-klooni. 
+
+Toiminnallisuus:
+
+- nelj‰st‰ laatikosta koostuvien palikoiden pudotteleminen 
+
+- pisteiden ker‰‰minen muodostamalla palikoista vaaksuoria rivej‰
