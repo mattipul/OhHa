@@ -3,3 +3,18 @@ Sunnuntai 16.12.2012 (11:00-12:00):
 - git-repositorio luotu
 - dokumentointi aloitettu
 - tuntikirjanpito aloitettu
+
+Maanantai 17.12.2012 (~3h)
+
+- grafiikkan tekoa
+- luokkajärjestelyt
+
+Tiistai 18.12.2012 (11:00 - 22:00 ~4h)
+
+- näppäimistönkäsittelijä
+- palkit liikkuvat ja törmäystarkastukset pelaavat
+
+Keskiviikko 19.12.2012 (10:00-11:30)
+
+- junit testejä
+- dokumentaation tekoa (luokkakaavio)
