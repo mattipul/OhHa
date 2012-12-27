@@ -9,6 +9,7 @@ public abstract class Palkki {
     private int y;
     private String kuva;
     private ArrayList<Pala> palat;
+    private ArrayList<Pala> tarkistuspalat;
     public int palakoko=40;
     private boolean liikkuuSivuttain=true;
     private boolean liikkuuAlas=true;
@@ -21,6 +22,13 @@ public abstract class Palkki {
     }
     
 
+    public void kaanna(){
+        
+    }
+    
+    public void poistaPalat(){
+        this.palat=new ArrayList<Pala>();
+    }
 
     public void lisaaPala(Pala pala){
         this.palat.add(pala);
@@ -86,5 +94,7 @@ public abstract class Palkki {
     public String getKuva(){
         return this.kuva;
     };
+    
+    
     
 }

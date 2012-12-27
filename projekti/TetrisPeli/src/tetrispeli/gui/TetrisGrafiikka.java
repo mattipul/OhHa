@@ -1,5 +1,6 @@
 package tetrispeli.gui;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -31,10 +32,20 @@ public class TetrisGrafiikka extends JPanel {
     public void paivita() {
         super.repaint();
     }
+    
+    public String palautaNollia(String luku){
+        String nollat="";
+        for(int i=0; i<10-luku.length(); i++){
+            nollat = nollat + "0";
+        }
+        return nollat;
+    }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
+        g.setFont(new Font("sansserif", Font.BOLD, 32));
+        String pisteet=""+this.peli.getPisteet();
+        g.drawString(palautaNollia(pisteet)+pisteet, 500, 32);
         ArrayList<Pala> pelipalat = this.peli.getPeliPalat();
         BufferedImage img = null;
         for (int i = 0; i < pelipalat.size(); i++) {

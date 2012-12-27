@@ -28,6 +28,12 @@ public class NappaimistonKasittelija implements KeyListener{
         this.palkki = this.peli.getPalkit().get( this.peli.getPalkit().size()-1 );
         ArrayList<Pala> palat = this.palkki.getPalat();
         if(this.peli.kykeneekoLiikkumaanAlas()){
+        if(e.getKeyCode() == KeyEvent.VK_SPACE){
+            if(this.peli.kykeneekoKaantymaan()){
+            this.palkki.kaanna();
+            }
+        }
+            
         if(e.getKeyCode() == KeyEvent.VK_LEFT){
             if( this.peli.kykeneekoLiikkumaanSivuttain() || this.suuntaOli==2){
                 this.palkki.liikuVasemmalle();

@@ -3,8 +3,10 @@ package tetrispeli.gui;
 
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.WindowConstants;
 import tetrispeli.peli.Palkki;
 import tetrispeli.peli.Tetris;
@@ -33,12 +35,16 @@ public class PeliGui implements Runnable{
     }
     
      public void luoKomponentit(Container container) {
+        
+        
         this.grafiikka = new TetrisGrafiikka(this.peli);
         container.add(this.grafiikka);
         
         NappaimistonKasittelija kasittelija = new NappaimistonKasittelija(this.peli);
         this.frame.addKeyListener(kasittelija);
-
+        
+        
+       
     }
      
     public TetrisGrafiikka getGrafiikka() {
