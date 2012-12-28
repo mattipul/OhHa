@@ -43,11 +43,24 @@ public class TetrisGrafiikka extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setFont(new Font("sansserif", Font.BOLD, 32));
+        BufferedImage img = null;        
+        
         String pisteet=""+this.peli.getPisteet();
-        g.drawString(palautaNollia(pisteet)+pisteet, 500, 32);
+        
+         try {
+                img = ImageIO.read(new File("logo.png"));
+            } catch (IOException e) {
+            }
+        g.drawImage(img, 480, 10, null);
+        g.setFont(new Font("sansserif", Font.BOLD, 32));
+        g.drawString(palautaNollia(pisteet)+pisteet, 500, 150);
+        g.setFont(new Font("sansserif", Font.BOLD, 17));
+        if(this.peli.getKaynnissa()==0){
+            g.drawString("Aloita painamalle enteriä", 490, 200);
+        }
+        
         ArrayList<Pala> pelipalat = this.peli.getPeliPalat();
-        BufferedImage img = null;
+        
         for (int i = 0; i < pelipalat.size(); i++) {
 
             try {

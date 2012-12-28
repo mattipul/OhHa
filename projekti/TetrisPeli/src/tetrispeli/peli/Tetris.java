@@ -15,9 +15,10 @@ public class Tetris extends Timer implements ActionListener {
     private int liikkumisNopeus;
     private int pisteet;
     private int yleinenNopeus;
+    private int kaynnissa=0;
 
     public Tetris() {      
-        super(100, null);
+        super(50, null);
         this.pisteet=0;
         this.liikkumisNopeus = 10;
         this.yleinenNopeus = 100;
@@ -28,6 +29,7 @@ public class Tetris extends Timer implements ActionListener {
 
         luoPeliAreena();
         lisaaPala();
+
     }
 
     public void luoPeliAreena() {
@@ -250,11 +252,18 @@ public class Tetris extends Timer implements ActionListener {
         }
 
         
+    public int getKaynnissa(){
+        return this.kaynnissa;
+    }
     
+    public void setKaynnissa(){
+        this.kaynnissa=1;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        if(this.kaynnissa==1){
         if (kykeneekoLiikkumaanAlas()) {
             this.palkit.get(this.palkit.size() - 1).liikuAlas(liikkumisNopeus);
         } else {
@@ -278,6 +287,7 @@ public class Tetris extends Timer implements ActionListener {
         
         
         this.grafiikka.paivita();
+        }
     }
     
     public int getPisteet(){

@@ -25,6 +25,12 @@ public class NappaimistonKasittelija implements KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            if(this.peli.getKaynnissa()==0){
+            this.peli.setKaynnissa();
+            }
+        }
+        
         this.palkki = this.peli.getPalkit().get( this.peli.getPalkit().size()-1 );
         ArrayList<Pala> palat = this.palkki.getPalat();
         if(this.peli.kykeneekoLiikkumaanAlas()){
