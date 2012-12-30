@@ -16,6 +16,7 @@ public class Tetris extends Timer implements ActionListener {
     private int pisteet;
     private int yleinenNopeus;
     private int kaynnissa=0;
+    private int paattynyt=0;
 
     public Tetris() {      
         super(50, null);
@@ -30,6 +31,19 @@ public class Tetris extends Timer implements ActionListener {
         luoPeliAreena();
         lisaaPala();
 
+    }
+    
+    public void alustaPeli(){
+        this.pisteet=0;
+        this.liikkumisNopeus = 10;
+        this.yleinenNopeus = 100;
+        super.setDelay(this.yleinenNopeus);
+        this.pelipalat = new ArrayList<Pala>();
+        this.palkit = new ArrayList<Palkki>();
+        
+        luoPeliAreena();
+        lisaaPala();
+        super.restart();
     }
 
     public void luoPeliAreena() {
@@ -88,6 +102,18 @@ public class Tetris extends Timer implements ActionListener {
 
     public void setGrafiikka(TetrisGrafiikka grafiikka) {
         this.grafiikka = grafiikka;
+    }
+    
+    public void peliPaattyi(){
+        for (int a = 0; a< this.palkit.size()-1; a++) {
+                    ArrayList<Pala> palkkipalat1 = this.palkit.get(a).getPalat();
+                    for (int aa = 0; aa < palkkipalat1.size(); aa++) {
+                        if(palkkipalat1.get(aa).getY()<=0){
+                            this.setPaattyi();
+                            this.alustaPeli();
+                        }
+                    }
+        }
     }
 
     public void alasRivit(int y){
@@ -258,12 +284,21 @@ public class Tetris extends Timer implements ActionListener {
     
     public void setKaynnissa(){
         this.kaynnissa=1;
+        this.paattynyt=0;
     }
+    
+    public void setPaattyi(){
+        this.kaynnissa=0;
+        this.paattynyt=1;
+    }
+    
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if(this.kaynnissa==1){
+        peliPaattyi();
         if (kykeneekoLiikkumaanAlas()) {
             this.palkit.get(this.palkit.size() - 1).liikuAlas(liikkumisNopeus);
         } else {
@@ -274,12 +309,13 @@ public class Tetris extends Timer implements ActionListener {
             }
             if(this.yleinenNopeus>0){
             this.yleinenNopeus=this.yleinenNopeus-5;
+            super.setDelay(this.yleinenNopeus);
             }
             for(int i=0; i<yyt.size(); i++){
             alasRivit(yyt.get(i));     
             this.pisteet+=1;
             
-            super.setDelay(this.yleinenNopeus);
+            
             }
             }
             lisaaPala();
@@ -292,5 +328,9 @@ public class Tetris extends Timer implements ActionListener {
     
     public int getPisteet(){
         return this.pisteet;
+    }
+    
+    public int getPaattynyt(){
+        return this.paattynyt;
     }
 }

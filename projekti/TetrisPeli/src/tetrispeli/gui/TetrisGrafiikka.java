@@ -56,7 +56,11 @@ public class TetrisGrafiikka extends JPanel {
         g.drawString(palautaNollia(pisteet)+pisteet, 500, 150);
         g.setFont(new Font("sansserif", Font.BOLD, 17));
         if(this.peli.getKaynnissa()==0){
-            g.drawString("Aloita painamalle enteriä", 490, 200);
+            g.drawString("Aloita painamalla enteriä", 490, 200);
+        }
+        if(this.peli.getPaattynyt()==1){
+            g.drawString("Peli on päättynyt!", 490, 260);
+            g.drawString("Sait " + this.peli.getPisteet() + " pistettä.", 490, 292);
         }
         
         ArrayList<Pala> pelipalat = this.peli.getPeliPalat();
