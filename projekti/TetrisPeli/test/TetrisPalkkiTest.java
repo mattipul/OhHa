@@ -15,7 +15,7 @@ import tetrispeli.peli.PeliPalkki;
  *
  * @author matti
  */
-public class TetrisPeliTest {
+public class TetrisPalkkiTest {
    
     private PeliPalkki palkki;
     

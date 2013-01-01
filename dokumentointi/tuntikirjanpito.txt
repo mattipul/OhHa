@@ -18,3 +18,32 @@ Keskiviikko 19.12.2012 (10:00-11:30)
 
 - junit testejä
 - dokumentaation tekoa (luokkakaavio)
+
+Perjantai 20.12.2012 (12:00-15:00)
+
+- pelimekaniikan tekoa
+
+Lauantai 21.12.2012 (10:00-13:00)
+
+- pelimekaniikan tekoa
+- ajatustyötä käyttöliittymän osalta
+
+Maanantai 23.12.2012 (10:00-14:00)
+
+- testaamista
+
+Tiistai 24.12.2012 (10-13)
+
+- testauttamista muilla
+
+Keskiviikko 25.12.2012 (10-14)
+
+- pisteiden käsittelyä
+- pelimekaniikan tekoa
+- testaamista
+
+Tiistai 1.1.2013 (12:00-15:00)
+
+- testien tekemistä
+- testaamista
+- ajatustyötä käyttöliittymän osalta

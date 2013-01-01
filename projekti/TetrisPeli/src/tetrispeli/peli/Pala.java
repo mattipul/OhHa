@@ -35,10 +35,6 @@ public class Pala {
     public void oikealle() {
         this.x += 40;
     }
-    
-    public void setKuva(){
-        this.kuva="harmaa.png";
-    }
 
     public boolean osuukoPalaan(Pala pala) {
         boolean ret = false;

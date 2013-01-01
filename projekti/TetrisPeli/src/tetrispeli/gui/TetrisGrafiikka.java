@@ -60,7 +60,7 @@ public class TetrisGrafiikka extends JPanel {
         }
         if(this.peli.getPaattynyt()==1){
             g.drawString("Peli on päättynyt!", 490, 260);
-            g.drawString("Sait " + this.peli.getPisteet() + " pistettä.", 490, 292);
+            g.drawString("Sait " + this.peli.getLoppuPisteet() + " pistettä.", 490, 292);
         }
         
         ArrayList<Pala> pelipalat = this.peli.getPeliPalat();
