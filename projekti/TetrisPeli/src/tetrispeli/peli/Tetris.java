@@ -54,14 +54,16 @@ public class Tetris extends Timer implements ActionListener {
         this.pisteet = 0;
         super.restart();
     }
-
-    public void luoPeliAreena() {
-        for (int i = 0; i < 12; i++) {
+    
+    public void luoPelipalat(){
+            for (int i = 0; i < 12; i++) {
             for (int ii = 0; ii < 17; ii++) {
                 this.pelipalat.add(new Pala(i * 40, ii * 40, "harmaa.png"));
             }
         }
+    }
 
+    public void tuhoaOsaPelipaloista(){
         for (int i = 1; i < 11; i++) {
             for (int ii = 0; ii < 16; ii++) {
                 Pala pala = new Pala(i * 40, ii * 40, "harmaa.png");
@@ -72,6 +74,12 @@ public class Tetris extends Timer implements ActionListener {
                 }
             }
         }
+    }
+    
+    public void luoPeliAreena() {
+        luoPelipalat();
+
+        tuhoaOsaPelipaloista();
     }
 
     public String arvoVari() {
@@ -122,6 +130,7 @@ public class Tetris extends Timer implements ActionListener {
                     this.tiedostonkasittelija.viePisteet( this.pisteet);
                     this.grafiikka.setTopPisteet(this.tiedostonkasittelija.palautaPisteet());
                     this.setPaattyi();
+                    this.grafiikka.repaint();
                     this.alustaPeli();
                 }
             }
@@ -142,39 +151,44 @@ public class Tetris extends Timer implements ActionListener {
             }
         }
     }
-
-    public ArrayList<Integer> tarkistaRivi() {
-        int[] riviY = new int[1000];
-        int[] y = new int[1000];
-        ArrayList<Integer> yyt = new ArrayList<Integer>();
+    
+    public int[][] haeRiviKohdat(){
+        int[][] riviY = new int[2][1000];
         int laskuri = 0;
         for (int i = 0; i < this.palkit.size(); i++) {
             ArrayList<Pala> palkkipalat1 = this.palkit.get(i).getPalat();
             for (int ii = 0; ii < palkkipalat1.size(); ii++) {
-                y[laskuri] = palkkipalat1.get(ii).getY();
+                riviY[0][laskuri] = palkkipalat1.get(ii).getY();
                 for (int a = 0; a < this.palkit.size(); a++) {
                     ArrayList<Pala> palkkipalat2 = this.palkit.get(a).getPalat();
                     for (int aa = 0; aa < palkkipalat2.size(); aa++) {
                         if (palkkipalat1.get(ii).getY() == palkkipalat2.get(aa).getY()) {
-                            riviY[laskuri]++;
+                            riviY[1][laskuri]++;
                         }
                     }
                 }
                 laskuri++;
             }
         }
+        return riviY;
+    }
 
-        for (int i = 0; i < riviY.length; i++) {
-            if (riviY[i] == 10) {
+    public ArrayList<Integer> tarkistaRivi() {
+        int[][] riviY = haeRiviKohdat();
+        ArrayList<Integer> yyt = new ArrayList<Integer>();
+
+
+        for (int i = 0; i < riviY[1].length; i++) {
+            if (riviY[1][i] == 10) {
                 for (int a = 0; a < this.palkit.size(); a++) {
                     ArrayList<Pala> palkkipalat1 = this.palkit.get(a).getPalat();
                     for (int aa = 0; aa < palkkipalat1.size(); aa++) {
-                        if (palkkipalat1.get(aa).getY() == y[i]) {
+                        if (palkkipalat1.get(aa).getY() == riviY[0][i]) {
                             palkkipalat1.remove(aa);
                         }
                     }
                 }
-                yyt.add(y[i]);
+                yyt.add(riviY[0][i]);
             }
         }
         return yyt;
@@ -189,21 +203,17 @@ public class Tetris extends Timer implements ActionListener {
         }
         return ret;
     }
-
-    public boolean kykeneekoLiikkumaanAlas(Pala palkki) {
-        ArrayList<Pala> palat = new ArrayList<Pala>();
-        palat.add(palkki);
-
-        boolean ret = true;
-
-        for (int i = 0; i < palat.size(); i++) {
+    
+  public boolean kykeneekoLiikkumaanAlasTarkistus(ArrayList<Pala> palat , int itseMukana){
+      boolean ret=true;
+         for (int i = 0; i < palat.size(); i++) {
             for (int ii = 0; ii < this.pelipalat.size(); ii++) {
                 if (palat.get(i).getX() == this.pelipalat.get(ii).getX() && palat.get(i).getY() + 40 == this.pelipalat.get(ii).getY()) {
                     ret = false;
                 }
             }
 
-            for (int a = 0; a < this.palkit.size(); a++) {
+            for (int a = 0; a < this.palkit.size() - itseMukana; a++) {
                 ArrayList<Pala> palkkipalat = this.palkit.get(a).getPalat();
                 for (int aa = 0; aa < palkkipalat.size(); aa++) {
                     if (palat.get(i).getX() == palkkipalat.get(aa).getX() && palat.get(i).getY() + 40 == palkkipalat.get(aa).getY()) {
@@ -213,6 +223,16 @@ public class Tetris extends Timer implements ActionListener {
 
             }
         }
+         return ret;
+  }  
+
+  public boolean kykeneekoLiikkumaanAlas(Pala palkki) {
+        ArrayList<Pala> palat = new ArrayList<Pala>();
+        palat.add(palkki);
+
+        boolean ret = true;
+        
+        ret = kykeneekoLiikkumaanAlasTarkistus(palat,0);
 
         return ret;
     }
@@ -221,26 +241,11 @@ public class Tetris extends Timer implements ActionListener {
         ArrayList<Pala> palat = this.palkit.get(this.palkit.size() - 1).getPalat();
         boolean ret = true;
 
-        for (int i = 0; i < palat.size(); i++) {
-            for (int ii = 0; ii < this.pelipalat.size(); ii++) {
-                if (palat.get(i).getX() == this.pelipalat.get(ii).getX() && palat.get(i).getY() + 40 == this.pelipalat.get(ii).getY()) {
-                    ret = false;
-                }
-            }
-
-            for (int a = 0; a < this.palkit.size() - 1; a++) {
-                ArrayList<Pala> palkkipalat = this.palkit.get(a).getPalat();
-                for (int aa = 0; aa < palkkipalat.size(); aa++) {
-                    if (palat.get(i).getX() == palkkipalat.get(aa).getX() && palat.get(i).getY() + 40 == palkkipalat.get(aa).getY()) {
-                        ret = false;
-                    }
-                }
-
-            }
-        }
+        ret = kykeneekoLiikkumaanAlasTarkistus(palat,1);
 
         return ret;
     }
+
 
     public boolean kykeneekoLiikkumaanSivuttain() {
         ArrayList<Pala> palat = this.palkit.get(this.palkit.size() - 1).getPalat();

@@ -53,8 +53,14 @@ public class TetrisGrafiikka extends JPanel {
         }
     }
     
-    public void piirraSivusta(BufferedImage img, Graphics g){
-         String pisteet=""+this.peli.getPisteet();
+    public void piirraKunPeliOnPaattynyt(Graphics g){
+            g.drawString("Peli on päättynyt!", 490, 260);
+            g.drawString("Sait " + this.peli.getLoppuPisteet() + " pistettä.", 490, 292);
+            topPisteet(g);
+    }
+    
+    public void logoJaPisteet(BufferedImage img,Graphics g){
+      String pisteet=""+this.peli.getPisteet();
         
          try {
                 img = ImageIO.read(new File("logo.png"));
@@ -63,14 +69,16 @@ public class TetrisGrafiikka extends JPanel {
         g.drawImage(img, 480, 10, null);
         g.setFont(new Font("sansserif", Font.BOLD, 32));
         g.drawString(palautaNollia(pisteet)+pisteet, 500, 150);
+    }
+    
+    public void piirraSivusta(BufferedImage img, Graphics g){
+        logoJaPisteet(img,g);
         g.setFont(new Font("sansserif", Font.BOLD, 17));
         if(this.peli.getKaynnissa()==0){
             g.drawString("Aloita painamalla enteriä", 490, 200);
         }
         if(this.peli.getPaattynyt()==1){
-            g.drawString("Peli on päättynyt!", 490, 260);
-            g.drawString("Sait " + this.peli.getLoppuPisteet() + " pistettä.", 490, 292);
-            topPisteet(g);
+          piirraKunPeliOnPaattynyt(g);
         }
     }
     
