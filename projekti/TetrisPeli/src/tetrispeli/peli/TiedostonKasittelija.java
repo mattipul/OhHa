@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TiedostonKasittelija {
@@ -16,7 +17,7 @@ public class TiedostonKasittelija {
     }
 
     public String[] palautaPisteet() throws FileNotFoundException {
-        String[] pisteet = new String[10];
+        String[] pisteet = new String[11];
 
         Scanner lukija = new Scanner(new File(this.tiedosto));
         int laskuri = 0;
@@ -27,13 +28,33 @@ public class TiedostonKasittelija {
 
         return pisteet;
     }
+    
+    public String jarjestaPisteet(int piste) throws FileNotFoundException{
+        String[] pisteet = this.palautaPisteet();
+        pisteet[10]=""+piste;
+        int[] pisteetInt=new int[11];
+        String ret="";
 
-    public void viePisteet(String pisteet) throws IOException {
+        for(int i=0; i<pisteet.length; i++){
+            pisteetInt[i]=Integer.parseInt( pisteet[i] );
+        }
+        
+        Arrays.sort( pisteetInt );
+        
+        
+        
+        for(int i=10; i>0; i--){
+            System.out.println(pisteetInt[i]);
+            ret=ret+pisteetInt[i]+"\n";
+        }
+
+        return ret;
+    }
+
+    public void viePisteet(int piste) throws IOException {
+        String pisteet = jarjestaPisteet(piste);
         FileWriter fstream = new FileWriter(this.tiedosto);
-        BufferedWriter out = new BufferedWriter(fstream);
-        
-        out.write(pisteet);
-        
-        out.close();
+        fstream.write( pisteet );       
+        fstream.close();
     }
 }
