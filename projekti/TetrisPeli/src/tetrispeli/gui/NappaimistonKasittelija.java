@@ -1,4 +1,5 @@
 
+
 package tetrispeli.gui;
 
 import java.awt.event.KeyEvent;
@@ -7,6 +8,12 @@ import java.util.ArrayList;
 import tetrispeli.peli.Pala;
 import tetrispeli.peli.Palkki;
 import tetrispeli.peli.Tetris;
+
+/**
+ * NappimistoKasittelija on PeliGui:ssa käytettävä näppäimistönkuuntelija ja -käsittelijä.
+ * Luokka kuuntelee näppäimistöä ja tarkistaa, onko painettu näppäin jokin pelissä käytettävistä.
+ * Ja toimii tämän jälkeen näppäimestä riippuvalla tavalla.
+ */
 
 public class NappaimistonKasittelija implements KeyListener{
     
@@ -22,7 +29,12 @@ public class NappaimistonKasittelija implements KeyListener{
     public void keyTyped(KeyEvent e) {
        
     }
-
+    /**
+     * Tarkastellaan, painetaanko nappia ja mitä nappia painetaan.
+     * Painamalla enteriä peli käynnistetään
+     * Välilyönti kääntää palkin
+     * Ja nuolilla ohjataan palkkia vasemmalta oikealle ja toisinpäin
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_ENTER){

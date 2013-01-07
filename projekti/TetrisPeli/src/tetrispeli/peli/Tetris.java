@@ -11,6 +11,11 @@ import java.util.logging.Logger;
 import javax.swing.Timer;
 import tetrispeli.gui.TetrisGrafiikka;
 
+/**
+ * Pelin ns. pääluokka. Sisältää pelimekaniikkaan liittyviä metodeja, jotka hoitavat hommia kuten täydellisten rivien tarkistaminen, pelikentän alustaminen ja palkkien järjestyksen ja liikkumisen hallinointi.
+ * @author matti
+ */
+
 public class Tetris extends Timer implements ActionListener {
 
     private TetrisGrafiikka grafiikka;

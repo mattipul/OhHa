@@ -3,6 +3,11 @@ package tetrispeli.peli;
 
 import java.util.ArrayList;
 
+/**
+ * PeliPalkin ylempi luokka. Sisältää metodeita, joita tarvitaan palkin liikuttelussa ja yksittäisten palojen manipuloinnissa.
+ * @author matti
+ */
+
 public abstract class Palkki {
     
     private int x;

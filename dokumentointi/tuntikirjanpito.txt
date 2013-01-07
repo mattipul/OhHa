@@ -47,3 +47,12 @@ Tiistai 1.1.2013 (12:00-15:00)
 - testien tekemistä
 - testaamista
 - ajatustyötä käyttöliittymän osalta
+
+Sunnuntai 6.1.2013 (10-13)
+
+- Javadocin tekemistä
+
+Maanantai 7.1.2013 (12-16)
+
+- Testien tekemistä
+- sekvenssikaaviot

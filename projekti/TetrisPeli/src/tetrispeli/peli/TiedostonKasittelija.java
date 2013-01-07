@@ -8,12 +8,21 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * TiedostonKasittelija osaa lukea top-listan tiedostosta, järjestää uuden top-listan ja kirjoittaa tämän uuden top-listan tiedostoon.
+ * @author matti
+ */
+
 public class TiedostonKasittelija {
 
     private String tiedosto;
 
     public TiedostonKasittelija(String tiedosto) {
         this.tiedosto = tiedosto;
+    }
+    
+    public String getTiedosto(){
+        return this.tiedosto;
     }
 
     public String[] palautaPisteet() throws FileNotFoundException {

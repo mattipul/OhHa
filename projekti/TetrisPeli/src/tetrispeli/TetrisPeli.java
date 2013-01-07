@@ -5,6 +5,10 @@ import javax.swing.SwingUtilities;
 import tetrispeli.gui.PeliGui;
 import tetrispeli.peli.Tetris;
 
+/**
+ * Main-metodin sisältävä luokka. Liittää luokkia yhteen ja aloittaa kaiken.
+ * @author matti
+ */
 
 public class TetrisPeli {
 

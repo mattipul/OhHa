@@ -1,5 +1,10 @@
 package tetrispeli.peli;
 
+/**
+ * Luokka yksittäisen neliskulmaiselle palalle, joista niin pelialue kuin pelipalkitkin koostuvat
+ * @author matti
+ */
+
 public class Pala {
 
     private int x;

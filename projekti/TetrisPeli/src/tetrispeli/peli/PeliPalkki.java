@@ -3,6 +3,11 @@ package tetrispeli.peli;
 
 import java.util.ArrayList;
 
+/**
+ * PeliPalkki perii luokan Palkki. PeliPalkki sisältää erityyppisten palkkien abstraktimmat muodot sekä metodit kääntämistä ja luomista varten.
+ * @author matti
+ */
+
 public class PeliPalkki extends Palkki{
     
     private int tyyppi;

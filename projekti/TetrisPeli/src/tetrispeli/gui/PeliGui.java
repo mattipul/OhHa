@@ -14,6 +14,11 @@ import javax.swing.WindowConstants;
 import tetrispeli.peli.Palkki;
 import tetrispeli.peli.Tetris;
 
+/**
+ * Luokassa PeliGui luodaan pelissä käytettävät erilaiset graafiset komponentit ja luodaan tarvittava JFrame sekä liitetään TetrisGrafiikka siihen. 
+ * @author matti
+ */
+
 public class PeliGui implements Runnable{
     
     private JFrame frame;
@@ -37,14 +42,21 @@ public class PeliGui implements Runnable{
         frame.setVisible(true);
     }
 
+    /**
+     * Luodaan komponentit
+     * JFrameen liitetään TetrisGrafiikka, joka saa parametrina PeliGuille annetun Tetriksen
+     * Tämän lisäksi JFrameen liitetään myös Nappaimistonkasittelija, joka toimii näppäimistökuuntelijana
+     */
     
      public void luoKomponentit(Container container) {
         
         
         this.grafiikka = new TetrisGrafiikka(this.peli);
+
         container.add(this.grafiikka);
         
         NappaimistonKasittelija kasittelija = new NappaimistonKasittelija(this.peli);
+        
         this.frame.addKeyListener(kasittelija);
         
         

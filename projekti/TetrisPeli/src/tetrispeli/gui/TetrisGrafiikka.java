@@ -21,6 +21,11 @@ import tetrispeli.peli.Pala;
 import tetrispeli.peli.Palkki;
 import tetrispeli.peli.Tetris;
 
+/**
+ * Tässä luokassa piirretään kaikki palkit, pisteet, top-lista, logo sekä peliä ohjaavaa tekstiä.
+ * @author matti
+ */
+
 public class TetrisGrafiikka extends JPanel {
 
     private Tetris peli;
@@ -34,6 +39,12 @@ public class TetrisGrafiikka extends JPanel {
         super.repaint();
     }
     
+    /**
+     * Palautetaan pisteiden eteen tulevat nollat
+     * @param luku pisteet
+     * @return nollat 10-pisteet
+     */
+    
     public String palautaNollia(String luku){
         String nollat="";
         for(int i=0; i<10-luku.length(); i++){
@@ -42,9 +53,22 @@ public class TetrisGrafiikka extends JPanel {
         return nollat;
     }
     
+    /**
+     * Asetetaan toppisteet
+     * @param toppisteet pisteet taulukossa
+     */
+    
     public void setTopPisteet(String[] toppisteet){
         this.toppisteet=toppisteet;
     }
+    
+    public String[] getTopPisteet(){
+        return this.toppisteet;
+    }
+    
+    /**
+     * Piirretään top10-lista
+     */
     
     public void topPisteet(Graphics g){
          g.drawString("Kymmenen parasta:", 490, 332);
@@ -53,11 +77,21 @@ public class TetrisGrafiikka extends JPanel {
         }
     }
     
+    /**
+     * Piirretään tekstiä sivuun kertomaan, että peli on päättynyt
+     * Piirretään myös saavutettu pistemäärä
+     */
+    
     public void piirraKunPeliOnPaattynyt(Graphics g){
             g.drawString("Peli on päättynyt!", 490, 260);
             g.drawString("Sait " + this.peli.getLoppuPisteet() + " pistettä.", 490, 292);
             topPisteet(g);
     }
+    
+    /**
+     * Piirretään Tetris-logo
+     * Sekä myös päivitettävä, nykyisen pelin pistemäärä
+     */
     
     public void logoJaPisteet(BufferedImage img,Graphics g){
       String pisteet=""+this.peli.getPisteet();
@@ -71,6 +105,11 @@ public class TetrisGrafiikka extends JPanel {
         g.drawString(palautaNollia(pisteet)+pisteet, 500, 150);
     }
     
+    /**
+     * Tässä käyettään aikaisempaa piirraKunPeliOnPaattynyt() -metodia
+     * Tätä metodia kutsutaan aina kun peli on valmis aloitettavaksi
+     */
+    
     public void piirraSivusta(BufferedImage img, Graphics g){
         logoJaPisteet(img,g);
         g.setFont(new Font("sansserif", Font.BOLD, 17));
@@ -81,6 +120,10 @@ public class TetrisGrafiikka extends JPanel {
           piirraKunPeliOnPaattynyt(g);
         }
     }
+    
+    /**
+     * Piirretään harmaat palkit, eli pelialueen rajat
+     */
     
     public void piirraPeliPalat(BufferedImage img, Graphics g){
        ArrayList<Pala> pelipalat = this.peli.getPeliPalat();
@@ -94,6 +137,10 @@ public class TetrisGrafiikka extends JPanel {
             g.drawImage(img, pelipalat.get(i).getX(), pelipalat.get(i).getY(), null);
         }
     }
+    
+    /**
+     * Piirretään tetrispalkit
+     */
     
     public void piirraPalkit(BufferedImage img, Graphics g){
              ArrayList<Palkki> palat = this.peli.getPalkit();
