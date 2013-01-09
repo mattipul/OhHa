@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
@@ -54,13 +55,25 @@ public class PeliGui implements Runnable{
         this.grafiikka = new TetrisGrafiikka(this.peli);
 
         container.add(this.grafiikka);
+        this.grafiikka.setLayout(null);
+        
+        String[] vaikeudetStr = { "Valitse vaikeustaso", "1", "2", "3", "4", "5" };
+        
+        JComboBox vaikeudet = new JComboBox(vaikeudetStr);
+        vaikeudet.setSelectedIndex(0);
+        vaikeudet.setBounds(500,600,150, 30);
+        vaikeudet.setFocusable(false);
+        vaikeudet.addActionListener(new Vaikeustaso(this.peli, vaikeudet));
+        this.grafiikka.add(vaikeudet);
+       
         
         NappaimistonKasittelija kasittelija = new NappaimistonKasittelija(this.peli);
         
         this.frame.addKeyListener(kasittelija);
         
         
-       
+
+
     }
      
     public TetrisGrafiikka getGrafiikka() {

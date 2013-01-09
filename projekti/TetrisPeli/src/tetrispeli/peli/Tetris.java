@@ -30,11 +30,11 @@ public class Tetris extends Timer implements ActionListener {
     private int paattynyt = 0;
 
     public Tetris() {
-        super(10, null);
+        super(150, null);
         this.tiedostonkasittelija = new TiedostonKasittelija("top10.txt");
         this.pisteet = 0;
         this.liikkumisNopeus = 10;
-        this.yleinenNopeus = 10;
+        this.yleinenNopeus = 50;
         addActionListener(this);
 
         this.pelipalat = new ArrayList<Pala>();
@@ -44,12 +44,17 @@ public class Tetris extends Timer implements ActionListener {
         lisaaPala();
 
     }
+    
+    public void setVaikeustaso(int taso){
+        this.yleinenNopeus = taso;
+        super.setDelay(this.yleinenNopeus);
+    }
 
     public void alustaPeli() {
         this.loppuPisteet = this.pisteet;
         
         this.liikkumisNopeus = 10;
-        this.yleinenNopeus = 10;
+        this.yleinenNopeus = 150;
         super.setDelay(this.yleinenNopeus);
         this.pelipalat = new ArrayList<Pala>();
         this.palkit = new ArrayList<Palkki>();
@@ -134,8 +139,8 @@ public class Tetris extends Timer implements ActionListener {
                     super.stop();
                     this.tiedostonkasittelija.viePisteet( this.pisteet);
                     this.grafiikka.setTopPisteet(this.tiedostonkasittelija.palautaPisteet());
-                    this.setPaattyi();
                     this.grafiikka.repaint();
+                    this.setPaattyi();
                     this.alustaPeli();
                 }
             }
