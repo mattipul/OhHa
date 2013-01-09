@@ -17,14 +17,27 @@ public class TiedostonKasittelija {
 
     private String tiedosto;
 
+    /**
+     * TiedostonKäsittelijän konstruktori
+     * @param tiedosto 
+     */
     public TiedostonKasittelija(String tiedosto) {
         this.tiedosto = tiedosto;
     }
     
+    /**
+     * Palauttaa tiedostonimen
+     * @return 
+     */
     public String getTiedosto(){
         return this.tiedosto;
     }
 
+    /**
+     * Lukee tiedostosta pisteet ja paluttaa ne taulukossa
+     * @return
+     * @throws FileNotFoundException 
+     */
     public String[] palautaPisteet() throws FileNotFoundException {
         String[] pisteet = new String[11];
 
@@ -38,6 +51,12 @@ public class TiedostonKasittelija {
         return pisteet;
     }
     
+    /**
+     * Järjestää pisteet suurimmasta pienimpään
+     * @param piste
+     * @return
+     * @throws FileNotFoundException 
+     */
     public String jarjestaPisteet(int piste) throws FileNotFoundException{
         String[] pisteet = this.palautaPisteet();
         pisteet[10]=""+piste;
@@ -60,6 +79,11 @@ public class TiedostonKasittelija {
         return ret;
     }
 
+    /**
+     * Kirjoittaa pisteet tiedostoon
+     * @param piste
+     * @throws IOException 
+     */
     public void viePisteet(int piste) throws IOException {
         String pisteet = jarjestaPisteet(piste);
         FileWriter fstream = new FileWriter(this.tiedosto);

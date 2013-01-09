@@ -69,6 +69,13 @@ public class PeliPalkki extends Palkki{
                              { {0,0}, {0,1}, {0,2}, {1,2} },
                              { {0,0}, {1,0}, {2,0}, {0,1} } };
 
+    /**
+     * PeliPalkin konstruktori
+     * @param x
+     * @param y
+     * @param kuva
+     * @param tyyppi 
+     */
     public PeliPalkki(int x, int y, String kuva, int tyyppi){
         super(x, y, kuva);      
         this.tyyppi=tyyppi;
@@ -76,10 +83,18 @@ public class PeliPalkki extends Palkki{
         luoPalkki(this.tyyppi);
     }
     
+    /**
+     * Palauttaa this.tyyppi:n
+     * @return 
+     */
     public int getTyyppi(){
         return this.tyyppi;
     }
     
+    /**
+     * Luo palkin, eli lisää ArrayListiin neljä palaa sovituin koordinaatein.
+     * @param tyyppi 
+     */
     public void luoPalkki(int tyyppi){
         if(tyyppi==1){
             for(int i=0; i<4; i++){
@@ -118,6 +133,9 @@ public class PeliPalkki extends Palkki{
         }
     }
  
+    /**
+     * Ylikirjoittaa Palkin kaanna-metodin. Käytetään, kun halutaan kääntää palkki ja asettaa Palat uuteen järjestykseen.
+     */
     @Override
     public void kaanna(){
         this.kaannos++;
@@ -164,7 +182,11 @@ public class PeliPalkki extends Palkki{
         
     }
     
-    
+    /**
+     * Tällä metodilla voidaan tarkastella, voiko kokonainen palkki kääntyä
+     * @param pala
+     * @return 
+     */
     public boolean osuukoPalaan(Pala pala) {
         boolean ret = false;
 

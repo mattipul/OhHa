@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
 import tetrispeli.peli.Tetris;
 
-/**
+/**Vaikeustasoa säätelevän comboboxin toiminnankuuntelija
  *
  * @author matti
  */
@@ -18,11 +18,21 @@ public class Vaikeustaso implements ActionListener{
     private Tetris tetris;
     private JComboBox vaikeudet;
     
+    /**
+     * Vaikeustason konstruktori
+     * @param tetris
+     * @param vaikeudet 
+     */
+    
     public Vaikeustaso(Tetris tetris, JComboBox vaikeudet){
            this.tetris=tetris;  
            this.vaikeudet=vaikeudet;
     }
 
+    /**
+     * Mitä tehdään kun toimitaan? Säädellään vaikeustasoa pelaajan haluamalla tasolla akselilla 1-5
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(this.vaikeudet.getSelectedIndex() ==0 ){

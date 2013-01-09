@@ -31,10 +31,17 @@ public class TetrisGrafiikka extends JPanel {
     private Tetris peli;
     private String[] toppisteet;
 
+    /**
+     * Grafiikka-luokan konstruktori
+     * @param peli 
+     */
     public TetrisGrafiikka(Tetris peli) {
         this.peli = peli;
     }
 
+    /**
+     * Päivittää grafiikan
+     */
     public void paivita() {
         super.repaint();
     }
@@ -62,6 +69,10 @@ public class TetrisGrafiikka extends JPanel {
         this.toppisteet=toppisteet;
     }
     
+    /**
+     * Palauttaa topPisteet -taulukon
+     * @return 
+     */
     public String[] getTopPisteet(){
         return this.toppisteet;
     }
@@ -160,6 +171,10 @@ public class TetrisGrafiikka extends JPanel {
         }
     }
 
+    /**
+     * Piirretään koko homma
+     * @param g 
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         BufferedImage img = null;        

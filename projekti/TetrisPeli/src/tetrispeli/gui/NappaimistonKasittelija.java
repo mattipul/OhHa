@@ -21,6 +21,10 @@ public class NappaimistonKasittelija implements KeyListener{
     private Tetris peli;
     private int suuntaOli=0;
     
+    /**
+     *Näppäimistönkuuntelijan konstruktori
+     */
+    
     public NappaimistonKasittelija(Tetris peli){
         this.peli = peli;
     }

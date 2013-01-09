@@ -26,11 +26,17 @@ public class PeliGui implements Runnable{
     private TetrisGrafiikka grafiikka;
     private Tetris peli;
     
+    /**
+     * Käyttöliittymäluokan konstruktori
+     * @param peli 
+     */
     public PeliGui(Tetris peli){
         super();
         this.peli=peli;
     }
-
+    /**
+     * "Piirretään" käyttöliittymä ja muu grafiikka ikkunaan
+     */
     @Override
     public void run() {
         frame = new JFrame("Tetris");    
@@ -75,7 +81,10 @@ public class PeliGui implements Runnable{
 
 
     }
-     
+     /**
+      * Palauttaa this.grafiikka:n
+      * @return 
+      */
     public TetrisGrafiikka getGrafiikka() {
         return grafiikka;
     }
