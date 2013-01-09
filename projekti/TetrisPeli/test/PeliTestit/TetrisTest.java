@@ -81,4 +81,12 @@ public class TetrisTest {
         assertTrue(tetris.getKaynnissa()==1);
     }
     
+    @Test
+    public void asettaakoVaikeusTason(){
+        tetris.setVaikeustaso(150);
+        assertTrue(tetris.getDelay()==150);
+    }
+    
+
+    
 }

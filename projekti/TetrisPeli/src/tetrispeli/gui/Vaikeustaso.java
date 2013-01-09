@@ -17,6 +17,22 @@ public class Vaikeustaso implements ActionListener{
     
     private Tetris tetris;
     private JComboBox vaikeudet;
+
+    /**
+     * Paulauttaa this.tetris
+     * @return 
+     */
+    public Tetris getTetris() {
+        return tetris;
+    }
+
+    /**
+     * Palauttaa this.vaikeudet
+     * @return 
+     */
+    public JComboBox getVaikeudet() {
+        return vaikeudet;
+    }
     
     /**
      * Vaikeustason konstruktori

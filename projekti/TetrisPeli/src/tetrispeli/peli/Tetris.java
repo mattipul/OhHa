@@ -143,7 +143,7 @@ public class Tetris extends Timer implements ActionListener {
     }
 
     /**
-     * Lisää palan, käytetään pelikentän luomisessa
+     * Lisää palkin
      */
     public void lisaaPala() {
         this.palkit.add(new PeliPalkki(200, 0, arvoVari(), arvoTyyppi()));
