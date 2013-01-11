@@ -18,15 +18,45 @@ import tetrispeli.gui.TetrisGrafiikka;
 
 public class Tetris extends Timer implements ActionListener {
 
+    /**
+     * Grafiikan piirtämiseen tarkoitettu olio
+     */
     private TetrisGrafiikka grafiikka;
+    /**
+     * Pelikentän piirtämiseen tarkoitetut Palat
+     */
     private ArrayList<Pala> pelipalat;
+    /**
+     * Kaikki pelissä mukana olevat palkit listassa
+     */
     private ArrayList<Palkki> palkit;
+    /**
+     * Tiedostonkäsittelyyn tarkoitettu olio
+     */
     private TiedostonKasittelija tiedostonkasittelija;
+    /**
+     * Kuinka isoja harppauksia Palat ottavat
+     */
     private int liikkumisNopeus;
+    /**
+     * Pelaajan pisteet
+     */
     private int pisteet;
+    /**
+     * Pelaajan loppupisteet
+     */
     private int loppuPisteet;
+    /**
+     * Delay
+     */
     private int yleinenNopeus;
+    /**
+     * Onko käynnissä?
+     */
     private int kaynnissa = 0;
+    /**
+     * Onko päättynyt?
+     */
     private int paattynyt = 0;
 
     /**
@@ -46,6 +76,10 @@ public class Tetris extends Timer implements ActionListener {
         luoPeliAreena();
         lisaaPala();
 
+    }
+    
+    public void setPisteet(int pisteet){
+        this.pisteet=pisteet;
     }
     
     /**
@@ -71,7 +105,7 @@ public class Tetris extends Timer implements ActionListener {
 
         luoPeliAreena();
         lisaaPala();
-        this.pisteet = 0;
+        //this.pisteet = 0;
         super.restart();
     }
     

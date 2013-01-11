@@ -15,6 +15,9 @@ import java.util.Scanner;
 
 public class TiedostonKasittelija {
 
+    /**
+     * Tiedostonimi, eli sen osoite
+     */
     private String tiedosto;
 
     /**

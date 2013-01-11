@@ -7,8 +7,17 @@ package tetrispeli.peli;
 
 public class Pala {
 
+    /**
+     * Palan x
+     */
     private int x;
+    /**
+     * Palan y
+     */
     private int y;
+    /**
+     * Palan väri, eli siihen liitettävä kuva
+     */
     private String kuva;
     
     /**

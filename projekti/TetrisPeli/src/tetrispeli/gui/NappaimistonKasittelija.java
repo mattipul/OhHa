@@ -17,8 +17,17 @@ import tetrispeli.peli.Tetris;
 
 public class NappaimistonKasittelija implements KeyListener{
     
+    /**
+     * Käsiteltävä palkki
+     */
     private Palkki palkki;
+    /**
+     * Käsittelijään liitettävä peliluokka
+     */
     private Tetris peli;
+    /**
+     * Kertoo palkin aikaisemman suunnan
+     */
     private int suuntaOli=0;
     
     /**
@@ -45,6 +54,7 @@ public class NappaimistonKasittelija implements KeyListener{
             if(this.peli.getKaynnissa()==0){
             this.peli.setKaynnissa();
             }
+            this.peli.setPisteet(0);
         }
         
         this.palkki = this.peli.getPalkit().get( this.peli.getPalkit().size()-1 );

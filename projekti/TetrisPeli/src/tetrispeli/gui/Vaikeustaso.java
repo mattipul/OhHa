@@ -15,7 +15,13 @@ import tetrispeli.peli.Tetris;
  */
 public class Vaikeustaso implements ActionListener{
     
+    /**
+     * Pelilogiikan sisältävä olio. Tämä olio haluaa tietää käytettävän vaikeustason
+     */
     private Tetris tetris;
+    /**
+     * Kuunneltava Combobox
+     */
     private JComboBox vaikeudet;
 
     /**

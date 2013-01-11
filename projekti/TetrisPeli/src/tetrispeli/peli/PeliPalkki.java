@@ -10,7 +10,13 @@ import java.util.ArrayList;
 
 public class PeliPalkki extends Palkki{
     
+    /**
+     * Pelipalkin tyyppi, eli muoto
+     */
     private int tyyppi;
+    /**
+     * Pelipalkin asento
+     */
     private int kaannos;
     
     /*
@@ -39,31 +45,44 @@ public class PeliPalkki extends Palkki{
     private int[][] tyyppi74= { {0,0}, {1,0}, {2,0}, {0,1} };
     */
     
+    /**
+     * Palkin muoto ja kaikki sen asennot
+     */
     private int[][][] t1 = {{ {0,0}, {0,1}, {0,2}, {0,3} },
                            { {-1,0}, {0,0}, {1,0}, {2,0} },
                            { {0,0}, {0,1}, {0,2}, {0,3} },
                            { {-1,0}, {0,0}, {1,0}, {2,0} }};
-    
+    /**
+     * Palkin muoto ja kaikki sen asennot
+     */
     private int[][][] t2 = {{ {0,0}, {0,1}, {0,2}, {1,1} }, 
                            { {-1,1}, {0,1}, {0,2}, {1,1} },
                            { {0,0}, {0,1}, {0,2}, {-1,1} },
                            { {-1,1}, {0,1}, {0,0}, {1,1} } };
-    
+    /**
+     * Palkin muoto ja kaikki sen asennot
+     */
     private int[][][] t3 = {{ {1,0}, {1,1}, {0,1}, {0,2} }, 
                            { {0,0}, {1,0}, {1,1}, {2,1} },
                             { {1,0}, {1,1}, {0,1}, {0,2} }, 
                            { {0,0}, {1,0}, {1,1}, {2,1} }};
-    
+    /**
+     * Palkin muoto ja kaikki sen asennot
+     */
     private int[][][] t4 = {{ {0,0}, {0,1}, {1,1}, {1,0} },
                              { {0,0}, {0,1}, {1,1}, {1,0} },
                              { {0,0}, {0,1}, {1,1}, {1,0} },
                             { {0,0}, {0,1}, {1,1}, {1,0} }};
-    
+    /**
+     * Palkin muoto ja kaikki sen asennot
+     */
     private int[][][] t6 ={ { {0,1}, {1,1}, {1,0}, {2,0} },
                             { {0,0}, {0,1}, {1,1}, {1,2} }, 
                               { {0,1}, {1,1}, {1,0}, {2,0} },
                             { {0,0}, {0,1}, {1,1}, {1,2} },};
-    
+    /**
+     * Palkin muoto ja kaikki sen asennot
+     */
     private int[][][] t7 = { { {0,0}, {1,0}, {1,1}, {1,2} },
                              { {0,0}, {1,0}, {2,0}, {2,1} },
                              { {0,0}, {0,1}, {0,2}, {1,2} },

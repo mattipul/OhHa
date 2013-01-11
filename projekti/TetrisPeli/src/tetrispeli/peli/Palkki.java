@@ -10,13 +10,37 @@ import java.util.ArrayList;
 
 public abstract class Palkki {
     
+    /**
+     * Palkin x
+     */
     private int x;
+    /**
+     * PAlkin y
+     */
     private int y;
+    /**
+     * Palkin väri, eli siihen liitettävä kuva
+     */
     private String kuva;
+    /**
+     * Sisältää Palat joista palkki koostuu
+     */
     private ArrayList<Pala> palat;
+    /**
+     * Tarkistamiseen käytettäviä paloja voidaan lisätä tähän listaan
+     */
     private ArrayList<Pala> tarkistuspalat;
+    /**
+     * Ilmoittaa Palan koon koordinaatistossa
+     */
     public int palakoko=40;
+    /**
+     * Ilmoittaa, voiko palkki liikkua sivuttain
+     */
     private boolean liikkuuSivuttain=true;
+    /**
+     * Ilmoittaa, voiko palkki liikkua alaspäin
+     */
     private boolean liikkuuAlas=true;
     
     /**

@@ -28,7 +28,13 @@ import tetrispeli.peli.Tetris;
 
 public class TetrisGrafiikka extends JPanel {
 
+    /**
+     * Pelilogiikan sisältävä olio
+     */
     private Tetris peli;
+    /**
+     * Piirrettävä top-lista taulukossa
+     */
     private String[] toppisteet;
 
     /**
@@ -95,7 +101,7 @@ public class TetrisGrafiikka extends JPanel {
     
     public void piirraKunPeliOnPaattynyt(Graphics g){
             g.drawString("Peli on päättynyt!", 490, 260);
-            g.drawString("Sait " + this.peli.getLoppuPisteet() + " pistettä.", 490, 292);
+            g.drawString("Sait " + this.peli.getPisteet() + " pistettä.", 490, 292);
             topPisteet(g);
     }
     

@@ -22,8 +22,17 @@ import tetrispeli.peli.Tetris;
 
 public class PeliGui implements Runnable{
     
+    /**
+     * Sovelluksen JFrame olio
+     */
     private JFrame frame;
+    /**
+     * Graafisen puolen piirtämiseen tarkoitettu olio
+     */
     private TetrisGrafiikka grafiikka;
+    /**
+     * Pelilogiikan sisältävä olio
+     */
     private Tetris peli;
     
     /**
